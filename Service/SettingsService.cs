@@ -9,7 +9,7 @@ namespace SaS.Service
 {
     public class SettingsService : ISettingsService
     {
-        private const string SETTINGS_CONTAINER_KEY = "Linea11SettingsContainer";
+        private const string SETTINGS_CONTAINER_KEY = "MyAppSettingsContainer";
         Windows.Storage.ApplicationDataContainer localSettings;
 
         public SettingsService()
