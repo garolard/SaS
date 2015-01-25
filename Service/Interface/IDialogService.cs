@@ -9,8 +9,8 @@ namespace SaS.Service.Interface
 {
     public interface IDialogService
     {
-        void ShowDialogAsync(string message);
-        void ShowDialogAsync(string message, string title);
-        void ShowDialogAsync(string message, string title, List<UICommand> commands);
+        System.Threading.Tasks.Task ShowDialogAsync(string message);
+        System.Threading.Tasks.Task ShowDialogAsync(string message, string title);
+        System.Threading.Tasks.Task ShowDialogAsync(string message, string title, List<UICommand> commands);
     }
 }

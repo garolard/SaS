@@ -12,7 +12,8 @@ namespace SaS.Service
     {
         public bool IsConnected()
         {
-            return NetworkInformation.GetInternetConnectionProfile() != null;
+            var profile = NetworkInformation.GetInternetConnectionProfile();
+            return (profile != null && profile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess);
         }
 
         public InternetConnectionType GetConnectionType()
