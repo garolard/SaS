@@ -43,6 +43,6 @@ namespace SaS.Service.Interface
         /// </summary>
         /// <param name="filename">Nombre y extensión del archivo objetivo.</param>
         /// <returns>El texto contenido en el archivo solicitado.</returns>
-        Task<string> ReadTextFromFile(string filename);
+        Task<string> ReadTextFromFileAsync(string filename);
     }
 }

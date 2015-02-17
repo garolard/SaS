@@ -54,7 +54,7 @@ namespace SaS.Service
             await writer.FlushAsync();
         }
 
-        async public Task<string> ReadTextFromFile(string filename)
+        async public Task<string> ReadTextFromFileAsync(string filename)
         {
             string fileText = String.Empty;
             StorageFile targetFile = await ApplicationData.Current.LocalFolder.GetFileAsync(filename);
