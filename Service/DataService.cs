@@ -8,6 +8,7 @@ using Windows.Storage;
 using System.IO;
 using System.Xml.Serialization;
 using Windows.Storage.Streams;
+using Windows.Storage.Pickers;
 
 namespace SaS.Service
 {
@@ -37,36 +38,6 @@ namespace SaS.Service
             }
 
             return targetObject;
-        }
-
-
-        async public Task SaveTextToFileAsync(string text, string filename)
-        {
-            StorageFile targetFile =
-                await ApplicationData.Current.LocalFolder.CreateFileAsync(filename, CreationCollisionOption.OpenIfExists);
-
-            var inputStream = await targetFile.OpenAsync(FileAccessMode.ReadWrite);
-            var writeStream = inputStream.GetOutputStreamAt(0);
-
-            DataWriter writer = new DataWriter(writeStream);
-            writer.WriteString(text);
-            await writer.StoreAsync();
-            await writer.FlushAsync();
-        }
-
-        async public Task<string> ReadTextFromFileAsync(string filename)
-        {
-            string fileText = String.Empty;
-            StorageFile targetFile = await ApplicationData.Current.LocalFolder.GetFileAsync(filename);
-
-            var inputStream = await targetFile.OpenAsync(FileAccessMode.Read);
-            var readStream = inputStream.GetInputStreamAt(0);
-
-            DataReader reader = new DataReader(readStream);
-            uint fileLength = await reader.LoadAsync((uint)inputStream.Size);
-            fileText = reader.ReadString(fileLength);
-
-            return fileText;
         }
     }
 }
